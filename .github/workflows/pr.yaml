@@ -25,4 +25,4 @@ jobs:
       - name: Lint Code
         run: deno lint
       - name: Run Tests
-        run: deno test --allow-read
+        run: deno test
