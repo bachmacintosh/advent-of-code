@@ -19,7 +19,7 @@ Provide a year (e.g. 2024) and day number (eg. 1 to 25) to get a solution
 All solutions have a unit test to make sure they solve the puzzle.
 
 ```shell
-deno test --allow-read
+deno test
 ```
 
 ## Questions? Bugs? Suggestions?
