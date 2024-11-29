@@ -9,7 +9,7 @@ This project was written for [Deno](https://deno.com/). Make sure you have it in
 ### Solve a Day
 
 ```shell
-deno task solve <YEAR> <DAY>
+deno task solve [YEAR] [DAY]
 ```
 
 Provide a year (e.g. 2024) and day number (eg. 1 to 25) to get a solution

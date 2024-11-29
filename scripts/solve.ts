@@ -49,7 +49,7 @@ function usage(issue: string): never {
       "",
       issue,
       "",
-      "deno task solve <YEAR> <DAY>",
+      "deno task solve [YEAR] [DAY]",
       "  - YEAR: A year number 2024 or later",
       "  - DAY: A day of the month of December between 1 and 25 (ie one of the days of Advent)",
     ].join("\n"),
