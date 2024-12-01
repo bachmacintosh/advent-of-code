@@ -1,6 +1,6 @@
 {
   "tasks": {
-    "solve": "deno run --allow-read ./scripts/solve.ts"
+    "solve": "deno run --allow-read=./inputs ./scripts/solve.ts"
   },
   "imports": {
     "@std/expect": "jsr:@std/expect@^1.0.8"
