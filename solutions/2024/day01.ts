@@ -7,9 +7,6 @@ const day01: AdventDay = {
     const [leftList, rightList] = getLocationLists(input);
     leftList.sort((itemA, itemB) => itemA - itemB);
     rightList.sort((itemA, itemB) => itemA - itemB);
-    if (leftList.length !== rightList.length) {
-      throw new Error("Location ID List is unbalanced; we aren't missing any Locations, are we?");
-    }
     let sum = 0;
     leftList.forEach((leftLoc, locIdx) => {
       if (leftLoc >= rightList[locIdx]) {
@@ -30,7 +27,7 @@ const day01: AdventDay = {
   },
 };
 
-function getLocationLists(input: string): [number[], number[]] {
+export function getLocationLists(input: string): [number[], number[]] {
   const leftList: number[] = [];
   const rightList: number[] = [];
   input.split("\n").filter((line) => line.length).map((line) =>
