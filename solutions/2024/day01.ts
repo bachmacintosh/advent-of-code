@@ -4,33 +4,45 @@ const day01: AdventDay = {
   year: 2024,
   day: 1,
   part1: (input) => {
-    const locationList1: number[] = [];
-    const locationList2: number[] = [];
-    input.split("\n").filter((line) => line.length).map((line) =>
-      line.split("   ").map((numberString) => Number(numberString))
-    ).forEach((item, itemIdx) => {
-      if (isNaN(item[0]) || isNaN(item[1])) {
-        throw new TypeError(`Invalid numerical input in Location IDs, row ${itemIdx + 1}`);
-      }
-      locationList1.push(item[0]);
-      locationList2.push(item[1]);
-    });
-    locationList1.sort((itemA, itemB) => itemA - itemB);
-    locationList2.sort((itemA, itemB) => itemA - itemB);
-    if (locationList1.length !== locationList2.length) {
+    const [leftList, rightList] = getLocationLists(input);
+    leftList.sort((itemA, itemB) => itemA - itemB);
+    rightList.sort((itemA, itemB) => itemA - itemB);
+    if (leftList.length !== rightList.length) {
       throw new Error("Location ID List is unbalanced; we aren't missing any Locations, are we?");
     }
     let sum = 0;
-    locationList1.forEach((loc1, locIdx) => {
-      if (loc1 >= locationList2[locIdx]) {
-        sum += loc1 - locationList2[locIdx];
+    leftList.forEach((leftLoc, locIdx) => {
+      if (leftLoc >= rightList[locIdx]) {
+        sum += leftLoc - rightList[locIdx];
       } else {
-        sum += locationList2[locIdx] - loc1;
+        sum += rightList[locIdx] - leftLoc;
       }
     });
     return sum;
   },
-  part2: (_input) => null,
+  part2: (input) => {
+    const [leftList, rightList] = getLocationLists(input);
+    let sum = 0;
+    leftList.forEach((leftLoc) => {
+      sum += leftLoc * rightList.filter((rightLoc) => leftLoc === rightLoc).length;
+    });
+    return sum;
+  },
 };
+
+function getLocationLists(input: string): [number[], number[]] {
+  const leftList: number[] = [];
+  const rightList: number[] = [];
+  input.split("\n").filter((line) => line.length).map((line) =>
+    line.split("   ").map((numberString) => Number(numberString))
+  ).forEach((item, itemIdx) => {
+    if (isNaN(item[0]) || isNaN(item[1])) {
+      throw new TypeError(`Invalid numerical input in Location IDs, row ${itemIdx + 1}`);
+    }
+    leftList.push(item[0]);
+    rightList.push(item[1]);
+  });
+  return [leftList, rightList];
+}
 
 export default day01;

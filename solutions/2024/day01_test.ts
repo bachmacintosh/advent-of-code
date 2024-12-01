@@ -12,6 +12,11 @@ Deno.test("Year 2024 Day 1 Part 1", () => {
 });
 
 Deno.test("Year 2024 Day 1 Part 2", () => {
-  const input = "Hello World!";
-  expect(day01.part2(input)).toBe(input);
+  const input = `3   4
+4   3
+2   5
+1   3
+3   9
+3   3`;
+  expect(day01.part2(input)).toBe(31);
 });
