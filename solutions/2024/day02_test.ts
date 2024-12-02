@@ -1,5 +1,5 @@
 import { describe, test } from "@std/testing/bdd";
-import day02, { getReports } from "./day02.ts";
+import day02, { getReports, isSafeReport } from "./day02.ts";
 import { expect } from "@std/expect";
 
 const input = `7 6 4 2 1
@@ -22,10 +22,13 @@ describe("Year 2024 Day 2", () => {
   test("getReports throws an error with invalid numerical data", () => {
     expect(() => getReports(`1 2 lol`)).toThrow();
   });
+  test("isSafeReport throws an error when there isn't enough data to determine safety", () => {
+    expect(() => isSafeReport([1])).toThrow();
+  });
   test("Part 1 returns number of safe reports based on their level data", () => {
     expect(day02.part1(input)).toBe(2);
   });
-  test("Part 1 throws an error when there isn't enough data in a report to determine if it's safe", () => {
-    expect(() => day02.part1(`1 2 3\n4`)).toThrow();
+  test("Part 2 returns number of safe reports based on their level data, but allows 1 unsafe level max per report", () => {
+    expect(day02.part2(input)).toBe(4);
   });
 });
