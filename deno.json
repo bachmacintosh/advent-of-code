@@ -1,0 +1,46 @@
+{
+  "tasks": {
+    "solve": "deno run --allow-read=./inputs ./scripts/solve.ts"
+  },
+  "imports": {
+    "@std/expect": "jsr:@std/expect@^1.0.8",
+    "@std/testing/bdd": "jsr:@std/testing/bdd"
+  },
+  "lint": {
+    "rules": {
+      "tags": ["recommended"],
+      "include": [
+        "camelcase",
+        "default-param-last",
+        "eqeqeq",
+        "explicit-function-return-type",
+        "explicit-module-boundary-types",
+        "guard-for-in",
+        "no-await-in-loop",
+        "no-boolean-literal-for-arguments",
+        "no-const-assign",
+        "no-eval",
+        "no-external-import",
+        "no-implicit-declare-namespace-export",
+        "no-inferrable-types",
+        "no-non-null-asserted-optional-chain",
+        "no-non-null-assertion",
+        "no-self-compare",
+        "no-sparse-arrays",
+        "no-sync-fn-in-async-fn",
+        "no-throw-literal",
+        "no-undef",
+        "single-var-declarator",
+        "verbatim-module-syntax"
+      ]
+    }
+  },
+  "fmt": {
+    "lineWidth": 120,
+    "semiColons": true,
+    "singleQuote": false,
+    "indentWidth": 2,
+    "useTabs": false,
+    "proseWrap": "preserve"
+  }
+}
