@@ -8,6 +8,12 @@ This project was written for [Deno](https://deno.com/). Make sure you have it in
 
 ### Solve a Day
 
+You will need to copy your puzzle input into a corresponding file in `inputs/{year}/day{zero-padded day}.txt`.
+
+For example, if you wish to solve Year 2024, Day 1, you will need to copy your input into `inputs/2024/day01.txt`.
+
+Then, you can run the following command:
+
 ```shell
 deno task solve [YEAR] [DAY]
 ```
