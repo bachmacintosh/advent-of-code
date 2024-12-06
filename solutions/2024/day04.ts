@@ -1,23 +1,17 @@
 import type { AdventDay } from "../../types.ts";
 
-export const GRID_DIRECTIONS = [
-  // Up
-  [0, 1],
-  // Diagonal Up Right
-  [1, 1],
-  // Right
-  [1, 0],
-  // Diagonal Down Right
-  [1, -1],
-  // Down
-  [0, -1],
-  // Diagonal Down Left
-  [-1, -1],
-  // Left
-  [-1, 0],
-  // Diagonal Up Left
-  [-1, 1],
-];
+export const GRID_DIRECTIONS = {
+  Up: [0, 1],
+  DiagonalUpRight: [1, 1],
+  Right: [1, 0],
+  DiagonalDownRight: [1, -1],
+  Down: [0, -1],
+  DiagonalDownLeft: [-1, -1],
+  Left: [-1, 0],
+  DiagonalUpLeft: [-1, 1],
+} as const;
+
+export type GridDirection = keyof typeof GRID_DIRECTIONS;
 
 const day04: AdventDay = {
   year: 2024,
@@ -32,7 +26,7 @@ const day04: AdventDay = {
     for (const [rowIdx, row] of grid.entries()) {
       for (const [colIdx] of row.entries()) {
         if (grid[rowIdx][colIdx] === "X") {
-          directionLoop: for (const [directionX, directionY] of GRID_DIRECTIONS) {
+          directionLoop: for (const [directionX, directionY] of Object.values(GRID_DIRECTIONS)) {
             for (let xmasIdx = 1; xmasIdx < XMAS.length; xmasIdx++) {
               const newRowIdx = rowIdx + directionX * xmasIdx;
               const newColIdx = colIdx + directionY * xmasIdx;
