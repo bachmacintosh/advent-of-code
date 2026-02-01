@@ -13,7 +13,7 @@ jobs:
       - name: Setup Deno
         uses: denoland/setup-deno@v2
         with:
-          deno-version: 2.6.3
+          deno-version: 2.6.7
       - name: Check Formatting
         run: deno fmt
       - name: Lint Code
